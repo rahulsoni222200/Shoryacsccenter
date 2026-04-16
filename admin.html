@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Admin Panel</h2>
+
+<div class="admin-box">
+<input type="text" id="title" placeholder="Job Title"><br>
+<input type="text" id="start" placeholder="Start Date"><br>
+<input type="text" id="last" placeholder="Last Date"><br>
+<button onclick="addJob()">Add Job</button>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+function addJob(){
+    let title=document.getElementById("title").value;
+    let start=document.getElementById("start").value;
+    let last=document.getElementById("last").value;
+
+    db.collection("jobs").add({
+        title:title,
+        start:start,
+        last:last
+    });
+
+    alert("Job Added ✅");
+}
+</script>
+
+</body>
+</html>
