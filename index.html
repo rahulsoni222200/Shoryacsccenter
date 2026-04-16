@@ -94,29 +94,21 @@
 <section id="jobs">
     <h2>Latest Jobs</h2>
 
-    <div class="job-box" onclick="openModal('SSC Recruitment','01 May 2026','30 May 2026')">
-        SSC Recruitment 2026
+    <div class="job-box" onclick="openModal('CRPF Central Reserve Police Force','20 April 2026','19 May 2026',"19 May 2026")>
+        CRPF Constable Tradesman Recruitment 2026
     </div>
 
-    <div class="job-box" onclick="openModal('Railway Recruitment','10 May 2026','25 May 2026')">
+    <div class="job-box" onclick="openModal('Railway Recruitment','10 May 2026','26 May 2026')">
         Railway Recruitment 2026
     </div>
 
      <div class="job-box" onclick="openModal('CBSE RESULT DECLARED','15 APRIL 2026','15 APRIL 2026')">
-        CBSE 2026
+        CBSE Result Declared 2026
     </div>
 
 </section>
 
-<!-- Modal -->
-<div class="modal" id="jobModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="jobTitle"></h2>
-        <p><b>Starting Date:</b> <span id="startDate"></span></p>
-        <p><b>Last Date:</b> <span id="lastDate"></span></p>
-        <button style="padding:10px;background:orange;color:white;border:none;border-radius:5px;">Apply Now</button>
-    </div>
+<!-- Modal 
 </div>
 
 <section id="contact">
@@ -135,6 +127,7 @@ function openModal(title,start,last){
     document.getElementById('jobTitle').innerText=title;
     document.getElementById('startDate').innerText=start;
     document.getElementById('lastDate').innerText=last;
+    document.getElementById('lastfeedate').innerText=fee;
 }
 
 function closeModal(){
