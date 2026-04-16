@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shorya CSC Center</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Shorya CSC Center</h1>
+    <p>All Digital & Government Services Available</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#jobs">Jobs</a>
+    <a href="admin.html">Admin</a>
+</nav>
+
+<section class="banner">
+    <h2>Welcome to CSC Center</h2>
+    <p>Fast | Secure | Reliable Services</p>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card">Aadhar Card Update</div>
+        <div class="card">PAN Card Apply</div>
+        <div class="card">Voter ID Apply</div>
+        <div class="card">Passport Apply</div>
+    </div>
+</section>
+
+<section id="jobs">
+    <h2>Latest Jobs</h2>
+    <div id="jobsContainer"></div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="jobModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="jobTitle"></h2>
+        <p><b>Starting Date:</b> <span id="startDate"></span></p>
+        <p><b>Last Date:</b> <span id="lastDate"></span></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Shorya CSC Center</p>
+</footer>
+
+<script>
+// 🔥 Firebase config (yahan apna daalna hoga)
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_ID"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// 🔥 Jobs load
+const container = document.getElementById("jobsContainer");
+
+db.collection("jobs").onSnapshot((snapshot)=>{
+    container.innerHTML = "";
+    snapshot.forEach((doc)=>{
+        let job = doc.data();
+
+        let div = document.createElement("div");
+        div.className="job-box";
+        div.innerText = job.title;
+
+        div.onclick = ()=>{
+            openModal(job.title,job.start,job.last);
+        };
+
+        container.appendChild(div);
+    });
+});
+
+// modal
+function openModal(title,start,last){
+    document.getElementById('jobModal').style.display='flex';
+    document.getElementById('jobTitle').innerText=title;
+    document.getElementById('startDate').innerText=start;
+    document.getElementById('lastDate').innerText=last;
+}
+
+function closeModal(){
+    document.getElementById('jobModal').style.display='none';
+}
+</script>
+
+</body>
+</html>
