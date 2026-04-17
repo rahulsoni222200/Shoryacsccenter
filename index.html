@@ -4,142 +4,130 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shorya CSC Center</title>
-<link rel="stylesheet" href="style.css">
 
 <style>
-.modal{
-    display:none;
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:rgba(0,0,0,0.7);
-    justify-content:center;
-    align-items:center;
-}
+body{font-family:Arial;margin:0;background:#f5f5f5}
+header{background:#0d6efd;color:white;text-align:center;padding:20px}
+nav{background:black;padding:10px;text-align:center}
+nav a{color:white;margin:10px;text-decoration:none;font-size:18px}
+.banner{text-align:center;padding:40px;background:orange;color:white}
 
-.modal-content{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    width:80%;
-    max-width:500px;
-    animation:fadeIn 0.5s;
-}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;padding:20px}
+.card{background:white;padding:15px;border-radius:10px;text-align:center;box-shadow:0 0 10px rgba(0,0,0,0.2)}
 
-.close{
-    float:right;
-    cursor:pointer;
-    font-size:20px;
-    color:red;
-}
+.job-box,.result-box{background:white;padding:15px;margin:10px;border-radius:10px;cursor:pointer;box-shadow:0 0 10px rgba(0,0,0,0.2)}
+.job-box:hover,.result-box:hover{background:orange;color:white}
 
-.job-box{
-    background:white;
-    padding:20px;
-    margin:10px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
-    cursor:pointer;
-    transition:0.3s;
-}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center}
+.modal-content{background:white;padding:25px;border-radius:10px;width:90%;max-width:500px}
+.close{float:right;color:red;cursor:pointer}
 
-.job-box:hover{
-    background:orange;
-    color:white;
-}
+section h2{text-align:center}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Shorya CSC Center</h1>
-    <p>All Digital & Government Services Available</p>
+<h1>Shorya CSC Center</h1>
+<p>All Digital & Government Services Available</p>
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#services">Services</a>
-    <a href="#jobs">Jobs</a>
-    <a href="#contact">Contact</a>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#jobs">Jobs</a>
+<a href="#results">Results</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <section class="banner">
-    <h2>Welcome to CSC Center</h2>
-    <p>Fast | Secure | Reliable Services</p>
+<h2>Welcome to CSC Center</h2>
+<p>Fast | Secure | Reliable</p>
 </section>
 
 <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card">Aadhar Card Update</div>
-        <div class="card">PAN Card Apply</div>
-        <div class="card">Voter ID Apply</div>
-        <div class="card">Passport Apply</div>
-        <div class="card">Electricity Bill</div>
-        <div class="card">Water Bill</div>
-        <div class="card">Insurance Services</div>
-        <div class="card">Bank Account Opening</div>
-        <div class="card">Money Transfer</div>
-        <div class="card">Online Form Filling</div>
-        <div class="card">Railway Ticket Booking</div>
-        <div class="card">Bus Ticket Booking</div>
-        <div class="card">CSC Registration</div>
-        <div class="card">Ayushman Card</div>
-        <div class="card">Birth Certificate</div>
-        <div class="card">Income Certificate</div>
-    </div>
+<h2>Our Services</h2>
+<div class="services">
+<div class="card">Aadhar Update</div>
+<div class="card">PAN Card</div>
+<div class="card">Passport</div>
+<div class="card">Bank Account</div>
+<div class="card">Money Transfer</div>
+<div class="card">Ticket Booking</div>
+<div class="card">Insurance</div>
+<div class="card">Online Forms</div>
+</div>
 </section>
 
 <section id="jobs">
-    <h2>Latest Jobs</h2>
+<h2>Latest Jobs</h2>
 
-    <div class="job-box" onclick="openModal('CRPF','20 April 2026','19 May 2026','19 May 2026')">
-        CRPF Constable Tradesman Recruitment 2026
-    </div>
-
-    <div class="job-box" onclick="openModal('Railway Recruitment','10 May 2026','25 May 2026','25 may 2026')">
-        Railway Recruitment 2026
-    </div>
-
-     <div class="job-box" onclick="openModal('CBSE RESULT DECLARED','15 APRIL 2026','15 APRIL 2026','none')">
-        CBSE 2026
-    </div>
+<div class="job-box" onclick="openModal('SSC GD Constable','05 May 2026','30 May 2026','02 June 2026')">SSC GD Constable 2026</div>
+<div class="job-box" onclick="openModal('UP Police','10 May 2026','15 June 2026','18 June 2026')">UP Police Recruitment</div>
+<div class="job-box" onclick="openModal('Railway Group D','01 June 2026','01 July 2026','05 July 2026')">Railway Group D</div>
+<div class="job-box" onclick="openModal('Army Agniveer','15 May 2026','10 June 2026','12 June 2026')">Army Agniveer</div>
+<div class="job-box" onclick="openModal('Delhi Police','20 May 2026','25 June 2026','28 June 2026')">Delhi Police</div>
+<div class="job-box" onclick="openModal('HSSC Clerk','12 May 2026','05 June 2026','07 June 2026')">HSSC Clerk</div>
+<div class="job-box" onclick="openModal('IBPS PO','01 June 2026','20 June 2026','22 June 2026')">IBPS PO</div>
+<div class="job-box" onclick="openModal('SBI Clerk','05 June 2026','25 June 2026','28 June 2026')">SBI Clerk</div>
+<div class="job-box" onclick="openModal('Post Office','10 May 2026','10 June 2026','12 June 2026')">Post Office GDS</div>
+<div class="job-box" onclick="openModal('SSC CGL','15 June 2026','15 July 2026','18 July 2026')">SSC CGL</div>
+<div class="job-box" onclick="openModal('Forest Guard','01 May 2026','30 May 2026','02 June 2026')">Forest Guard</div>
+<div class="job-box" onclick="openModal('Income Tax','10 June 2026','05 July 2026','08 July 2026')">Income Tax Dept</div>
+<div class="job-box" onclick="openModal('DRDO','20 May 2026','20 June 2026','22 June 2026')">DRDO Recruitment</div>
+<div class="job-box" onclick="openModal('BSF Constable','25 May 2026','25 June 2026','28 June 2026')">BSF Constable</div>
+<div class="job-box" onclick="openModal('CRPF','01 June 2026','01 July 2026','03 July 2026')">CRPF Recruitment</div>
 
 </section>
 
-<!-- Modal -->
+<section id="results">
+<h2>Latest Results</h2>
+
+<div class="result-box">CBSE 10th Result 2026 Declared</div>
+<div class="result-box">CBSE 12th Result 2026 Declared</div>
+<div class="result-box">SSC GD Result 2026</div>
+<div class="result-box">UP Police Result 2026</div>
+<div class="result-box">Railway NTPC Result</div>
+<div class="result-box">Haryana Board 10th Result</div>
+<div class="result-box">Haryana Board 12th Result</div>
+<div class="result-box">SSC CGL Tier 1 Result</div>
+<div class="result-box">IBPS PO Result</div>
+<div class="result-box">SBI Clerk Result</div>
+<div class="result-box">Army Agniveer Result</div>
+<div class="result-box">Delhi Police Result</div>
+<div class="result-box">Forest Guard Result</div>
+<div class="result-box">Post Office GDS Result</div>
+
+</section>
+
 <div class="modal" id="jobModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="jobTitle"></h2>
-        <p><b>Starting Date:</b> <span id="startDate"></span></p>
-        <p><b>Last Date:</b> <span id="lastDate"></span></p>
-       <p><b>Fee last Date:</b> <span id="feelastDate"></span></p>
-    </div>
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2 id="jobTitle"></h2>
+<p><b>Starting Date:</b> <span id="startDate"></span></p>
+<p><b>Last Date:</b> <span id="lastDate"></span></p>
+<p><b>Fee Last Date:</b> <span id="feeLastDate"></span></p>
+</div>
 </div>
 
 <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">📍 Fatehabad, Haryana</p>
-    <p style="text-align:center;">📞 9000000000</p>
+<h2>Contact</h2>
+<p style="text-align:center">📍 Fatehabad</p>
+<p style="text-align:center">📞 9000000000</p>
 </section>
 
-<footer>
-    <p>© 2026 Shorya CSC Center</p>
-</footer>
-
 <script>
-function openModal(title,start,last,feelast){
-    document.getElementById('jobModal').style.display='flex';
-    document.getElementById('jobTitle').innerText=title;
-    document.getElementById('startDate').innerText=start;
-    document.getElementById('lastDate').innerText=last;
-    document.getElementById('feelastdate').innerText=feelast;
+function openModal(title,start,last,fee){
+ document.getElementById('jobModal').style.display='flex';
+ document.getElementById('jobTitle').innerText=title;
+ document.getElementById('startDate').innerText=start;
+ document.getElementById('lastDate').innerText=last;
+ document.getElementById('feeLastDate').innerText=fee;
 }
 
 function closeModal(){
-    document.getElementById('jobModal').style.display='none';
+ document.getElementById('jobModal').style.display='none';
 }
 </script>
 
